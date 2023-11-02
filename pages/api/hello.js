@@ -2,6 +2,17 @@
 const axios = require('axios');
 
 export default async function handler(req, res) {
+  // await 使わなくても、axiosのthenで処理できる
+  axios ({
+    url: 'https://yahoo.co.jp',
+  }).then(response => {
+    console.log(response);
+    const data = { name: 'John Doe' };
+    res.status(200).json(data);
+  });
+
+
+  /*
   const response = await axios ({
     url: 'https://yahoo.co.jp',
   });
@@ -14,4 +25,5 @@ export default async function handler(req, res) {
 
   // データはJSON形式で返す  
   res.status(200).json(data);
+   */
 }
